@@ -1,0 +1,6 @@
+framework module Pods_CoreDataPreloadDemoTests {
+  umbrella header "Pods-CoreDataPreloadDemoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CityMO" representedClassName="CityMO" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rank" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rank_order" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="districts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DistrictMO" inverseName="city" inverseEntity="DistrictMO" syncable="YES"/>
+    </entity>
+    <entity name="DistrictMO" representedClassName="DistrictMO" syncable="YES">
+        <attribute name="city_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rank" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rank_order" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CityMO" inverseName="districts" inverseEntity="CityMO" syncable="YES"/>
+        <relationship name="wards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WardMO" inverseName="district" inverseEntity="WardMO" syncable="YES"/>
+    </entity>
+    <entity name="WardMO" representedClassName="WardMO" syncable="YES">
+        <attribute name="district_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rank" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rank_order" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="district" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DistrictMO" inverseName="wards" inverseEntity="DistrictMO" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CityMO" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="DistrictMO" positionX="-36" positionY="9" width="128" height="150"/>
+        <element name="WardMO" positionX="-54" positionY="-9" width="128" height="135"/>
+    </elements>
+</model>
